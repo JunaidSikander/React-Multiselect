@@ -1,10 +1,18 @@
-import {useState} from 'react'
+import {useState} from "react";
+import Select, {SelectOption} from "./components/Select";
+
+const options = [
+    {label: "First", value: 1},
+    {label: "Second", value: 2},
+    {label: "Third", value: 3},
+    {label: "Fourth", value: 4},
+    {label: "Fifth", value: 5},
+];
 
 function App() {
-    const [count, setCount] = useState(0)
-
+    const [value, setValue] = useState<SelectOption | undefined>(options[0])
     return (
-        <h1>Testing React app</h1>
+        <Select options={options} value={value} onChange={(o) => setValue(o)}/>
     )
 }
 
