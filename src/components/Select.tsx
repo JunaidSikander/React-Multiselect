@@ -1,26 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import styles from "../styles/select.module.css"
-
-export type SelectOption = {
-    label: string,
-    value: string | number
-}
-
-type MultipleSelectProps = {
-    multiple: true
-    value: SelectOption[]
-    onChange: (value: SelectOption[]) => void
-}
-
-type SingleSelectProps = {
-    multiple?: false
-    value?: SelectOption
-    onChange: (value: SelectOption | undefined) => void
-}
-
-type SelectProps = {
-    options: SelectOption[],
-} & (SingleSelectProps | MultipleSelectProps)
+import {SelectOption, SelectProps} from "../types/Select";
 
 function Select({multiple, value, onChange, options}: SelectProps) {
     const [isOpen, setIsOpen] = useState(false);
